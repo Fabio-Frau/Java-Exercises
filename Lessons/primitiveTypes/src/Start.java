@@ -4,12 +4,12 @@ public class Start {
         int y = 25;
         int z = x + y;
         /* Please note:
-        * In Java, when you perform division on two integer values, the result will always be an integer.
-        * This means that any fractional part of the result will be truncated, and the result will be
-        * rounded down to the nearest integer.
-        * When I divide x by y ( 15 / 25 ) the result is 0.6 so truncating the fractional part I get 0.
-        * When I divide y by x ( 25 / 15 ) the result is 1.6666 so truncating I get 1.
-        *  */
+         * In Java, when you perform division on two integer values, the result will always be an integer.
+         * This means that any fractional part of the result will be truncated, and the result will be
+         * rounded down to the nearest integer.
+         * When I divide x by y ( 15 / 25 ) the result is 0.6 so truncating the fractional part I get 0.
+         * When I divide y by x ( 25 / 15 ) the result is 1.6666 so truncating I get 1.
+         *  */
         int w = x / y;
         int u = y / x;
 
