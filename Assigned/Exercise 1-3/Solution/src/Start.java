@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class Start {
     public static void main(String[] args) {
         double x = 23.65;
