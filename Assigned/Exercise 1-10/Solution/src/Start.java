@@ -15,7 +15,7 @@ public class Start {
         y += increment;
         double result = x * y;
         System.out.println("The result of incrementing x and y by \"increment\" and" +
-                " the multiplying them together is equal to " + result);
+                " then multiplying them together is equal to " + result);
         return result;
 
     }
