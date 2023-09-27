@@ -1,0 +1,4 @@
+Gli operatori di comparazione
+
+1) Scrivi un programma che contiene un metodo che che confronti due caratteri e determini se sono diversi.
+2) Il programma dovrà stampare a video i due caratteri e il risultato dell'eguaglianza.
