@@ -1,0 +1,4 @@
+enum TipoForma {
+    RETTANGOLO,
+    TRIANGOLO
+}
