@@ -2,9 +2,9 @@ public class Studente {
 
     private String name;
     private String surname;
-    private int age;
+    private Integer age;
 
-    public Studente(String name, String surname, int age) {
+    public Studente(String name, String surname, Integer age) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -49,7 +49,7 @@ public class Studente {
         Studente other = (Studente)obj;
         if (!this.name.equals(other.name)) { return false; }
         if (!this.surname.equals(other.surname)) { return false; }
-        if (this.age != other.age) { return false; }
+        if (!this.age.equals(other.age)) { return false; }
 
         return true;
     }
