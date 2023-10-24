@@ -1,0 +1,20 @@
+Traccia checkpoint 1
+
+Creare un programma in Java che dato un array di interi abbia i seguenti metodi:
+
+
+a) Scrivere un metodo che a partire da un array calcoli il valore massimo e il valore minimo e 
+stampi l’informazione a video.
+
+
+b) Scrivere un metodo che calcoli la somma di tutti i numeri pari all’interno dell’array e stampi l’informazione a video.
+
+
+Creare un programma in Java che dato un array di Stringhe abbia il seguente metodo:
+
+c) Scrivere un metodo che ricerchi se una stringa di lunghezza arbitraria (inserita dall’utente) è contenuta o meno all’iterno dell’array e che restituisca true o false come risultato della ricerca. Il risultato della ricerca dovrà essere stampato a video.
+
+Traccia Bonus:
+
+Scrivere una classe Docente che rappresenti le seguenti informazioni relative ad un docente: nome, cognome, codice ed età. La classe dovrà avere un costruttore ed i metodi accessori.
+Scrivere poi una classe Università che rappresenti un insieme di docenti universitari tramite un Array di tipo Docente e che contenga il costruttore, i metodi accessori ed un metodo che restituisce l’età minima tra i docenti universitari.
