@@ -1,6 +1,4 @@
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -86,9 +84,18 @@ public class Main {
         System.out.println(articleMap.containsValue("Pizza"));
         System.out.println(articleMap.containsValue(article1));
 
+        for (Map.Entry<String,Articolo> element : articleMap2.entrySet()) {
+            System.out.println("Element: " + element);
+        }
 
+        Set<Map.Entry<String, Articolo>> entries = articleMap2.entrySet();
+        System.out.println("Entries: " + entries);
 
+        Set<String> chiavi = articleMap2.keySet();
+        System.out.println("Chiavi: " + chiavi);
 
+        Collection<Articolo> valori = articleMap2.values();
+        System.out.println("Valori: " + valori);
 
 
     }
