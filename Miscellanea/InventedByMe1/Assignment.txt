@@ -1,0 +1,4 @@
+Scrivere un programma che dati due array di interi 1) verifica se sono della stessa dimensione
+se lo sono crei un nuovo array di stessa dimensione
+i cui elementi sono il prodotto degli elementi dei due array di indice corrispondente
+se non sono della stessa dimensione restituisci un array di soli 0
