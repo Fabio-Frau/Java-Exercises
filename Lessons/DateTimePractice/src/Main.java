@@ -6,6 +6,8 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Set;
 
@@ -309,7 +311,21 @@ public class Main {
         System.out.println(thirty1);
 
         System.out.println();
-        System.out.println("Compatibility with Date and Calendar");
+        System.out.println("Date and Time formatting");
+
+        LocalDateTime localDateTime2 = LocalDateTime.of(2015, Month.JANUARY, 25,6,30);
+        System.out.println(localDateTime2);
+
+        //String localDateString = localDateTime2.format(DateTimeFormatter.ISO_DATE);
+        //System.out.println(localDateString);
+
+        String localDateTime3 = localDateTime2.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        System.out.println(localDateTime3);
+
+        String localDateTime4 = localDateTime2.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(Locale.UK));
+        System.out.println(localDateTime4);
+
+
 
 
 
