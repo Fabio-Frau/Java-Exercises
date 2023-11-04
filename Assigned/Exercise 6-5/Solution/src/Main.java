@@ -1,17 +1,56 @@
+import java.time.DateTimeException;
 import java.time.OffsetDateTime;
 
 public class Main {
     public static void main(String[] args) {
 
-        OffsetDateTime data1 = OffsetDateTime.parse("2023-03-01T13:00:00Z");
-        OffsetDateTime data2 = OffsetDateTime.parse("2024-03-01T13:00:00Z");
-        OffsetDateTime dataNow = OffsetDateTime.now();
+        String dateToParse1 = "2023-03-01T13:00:00Z";
+        String dateToParse2 = "2024-03-01T13:00:00Z";
+        OffsetDateTime date1Parsed = parseDate(dateToParse1);
+        OffsetDateTime date2Parsed = parseDate(dateToParse2);
+        OffsetDateTime dateNow = OffsetDateTime.now();
 
-        System.out.println("Is data1 before of data2? = " +  data1.isBefore(data2));
-        System.out.println("Is data2 after of data1? = " +  data2.isAfter(data1));
-        System.out.println("Is data1 equal at now()? = " + data1.isEqual(dataNow));
-        System.out.println("Is data2 equal at now()? = " +data2.isEqual(dataNow));
+        boolean isDateBefore = before(date1Parsed, date2Parsed);
+        boolean isDateAfter = after(date2Parsed, date1Parsed );
+        boolean isDate1EqualNow = equal(date1Parsed, dateNow);
+        boolean isDate2EqualNow = equal(date2Parsed, dateNow);
 
+        System.out.println("Is " + date1Parsed + " before " + date2Parsed + " = " + isDateBefore);
+        System.out.println("Is " + date2Parsed + " after " + date1Parsed + " = " + isDateAfter);
+        System.out.println("Is " + date1Parsed + " equal to " + dateNow + " = " + isDate1EqualNow);
+        System.out.println("Is " + date2Parsed + " equal to " + dateNow + " = " + isDate2EqualNow);
 
+    }
+
+    public static boolean equal (OffsetDateTime data1, OffsetDateTime data2) {
+        if (data1 != null && data2 != null) {
+            return data1.isEqual(data2);
+        } else {
+            throw new DateTimeException("Passed a null value for a date and cannot compare");
+        }
+    }
+
+    public static boolean after (OffsetDateTime data1, OffsetDateTime data2) {
+        if (data1 != null && data2 != null) {
+            return data1.isAfter(data2);
+        } else {
+            throw new DateTimeException("Passed a null value for a date and cannot compare");
+        }
+    }
+
+    public static boolean before (OffsetDateTime data1, OffsetDateTime data2) {
+        if (data1 != null && data2 != null) {
+            return data1.isBefore(data2);
+        } else {
+            throw new DateTimeException("Passed a null value for a date and cannot compare");
+        }
+    }
+
+    public static OffsetDateTime parseDate(String dateToParse) {
+        if (dateToParse != null) {
+            return OffsetDateTime.parse(dateToParse);
+        } else {
+            throw new DateTimeException("Passed a null value that cannot be parsed");
+        }
     }
 }
