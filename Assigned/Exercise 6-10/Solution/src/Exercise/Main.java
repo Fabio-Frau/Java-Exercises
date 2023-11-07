@@ -1,3 +1,4 @@
+package Exercise;
 import java.time.DateTimeException;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
@@ -42,12 +43,19 @@ public class Main {
             throw new NullPointerException("Provided pattern is null and cannot be used to format a date");
         } else if (localization == null) {
             throw new NullPointerException("Provided localization is null and cannot be used to format a date");
-        } else {
-            //Throws: IllegalArgumentException – if the pattern is invalid
-            return date.format(DateTimeFormatter.ofPattern(pattern, localization));
+        }else if(pattern.isEmpty()) {
+            throw new DateTimeException("Provided pattern is empty and cannot be used to format a date");
+        } else if (pattern.isBlank()) {
+            throw new DateTimeException("Provided pattern is blank and cannot be used to format a date");
+        } else{
+            try {
+                //Throws: IllegalArgumentException – if the pattern is invalid
+                return date.format(DateTimeFormatter.ofPattern(pattern).withLocale(Locale.ITALY));
+            } catch (Exception e) {
+                throw new DateTimeException("Formatting error has occurred");
+            }
         }
     }
-
 
     /*Note well plusYears, plusMonths, minusMonths and so on work with negative numbers as well, but I'm constraining
     my methods to practice with testing later on */
@@ -55,8 +63,8 @@ public class Main {
     public static OffsetDateTime addDays(OffsetDateTime date, int daysAdded) {
         if (date == null) {
             throw new DateTimeException("The passed date is null and cannot add anything");
-        } else if (daysAdded <= 0) {
-            throw new IllegalArgumentException("The value of the months to subtract must be greater than or equal to zero");
+        } else if (daysAdded < 0) {
+            throw new IllegalArgumentException("The value of the days to subtract must be greater than zero");
         } else {
             return date.plusDays(daysAdded);
         }
@@ -65,8 +73,8 @@ public class Main {
     public static OffsetDateTime subtractMonths(OffsetDateTime date, int monthsSubtracted) {
         if (date == null) {
             throw new DateTimeException("The passed date is null and cannot add anything");
-        } else if (monthsSubtracted <= 0) {
-            throw new IllegalArgumentException("The value of the months to subtract must be greater than or equal to zero");
+        } else if (monthsSubtracted < 0) {
+            throw new IllegalArgumentException("The value of the months to subtract must be greater than zero");
         } else {
             return date.minusMonths(monthsSubtracted);
         }
@@ -75,18 +83,27 @@ public class Main {
     public static OffsetDateTime addYears(OffsetDateTime date, int yearsAdded) {
         if (date == null) {
             throw new DateTimeException("The passed date is null and cannot add anything");
-        } else if (yearsAdded <= 0) {
-            throw new IllegalArgumentException("The value of the years to add must be greater than or equal to zero");
+        } else if (yearsAdded < 0) {
+            throw new IllegalArgumentException("The value of the years to add must be greater than zero");
         } else {
             return date.plusYears(yearsAdded);
         }
     }
 
     public static OffsetDateTime parseDate(String dateToParse) {
-        if (dateToParse != null) {
-            return OffsetDateTime.parse(dateToParse);
-        } else {
+
+        if (dateToParse == null) {
             throw new DateTimeException("Passed a null value that cannot be parsed");
+        } else if (dateToParse.isEmpty()) {
+            throw new DateTimeException("The passed string is empty and cannot be parsed");
+        } else if (dateToParse.isBlank()) {
+            throw new DateTimeException("The passed string is blank and cannot be parsed");
+        }else {
+            try {
+                return OffsetDateTime.parse(dateToParse);
+            } catch (Exception e) {
+                throw  new DateTimeException("Text cannot be parsed");
+            }
         }
     }
 }

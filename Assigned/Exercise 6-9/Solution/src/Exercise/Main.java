@@ -1,7 +1,6 @@
-import java.time.DateTimeException;
-import java.time.DayOfWeek;
-import java.time.Month;
-import java.time.OffsetDateTime;
+package Exercise;
+
+import java.time.*;
 
 public class Main {
 
@@ -76,11 +75,19 @@ public class Main {
     }
 
     public static OffsetDateTime parseDate(String dateToParse) {
-        if (dateToParse != null) {
-            return OffsetDateTime.parse(dateToParse);
-        }
-        else {
+
+        if (dateToParse == null) {
             throw new DateTimeException("Passed a null value that cannot be parsed");
+        } else if (dateToParse.isEmpty()) {
+            throw new DateTimeException("The passed string is empty and cannot be parsed");
+        } else if (dateToParse.isBlank()) {
+            throw new DateTimeException("The passed string is blank and cannot be parsed");
+        }else {
+            try {
+                return OffsetDateTime.parse(dateToParse);
+            } catch (Exception e) {
+                throw  new DateTimeException("Text cannot be parsed");
+            }
         }
     }
 
