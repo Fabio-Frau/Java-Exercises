@@ -12,6 +12,8 @@ public class Main {
         System.out.println(rectangle.draw());
         System.out.println(triangle.draw());
 
+
+
     }
 
 }
