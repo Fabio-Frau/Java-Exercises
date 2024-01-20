@@ -1,6 +1,5 @@
-package com.fabiofrau.Demo.Crud.entities;
+package com.fabiofrau.DemoRepository.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,18 +10,17 @@ import java.time.LocalDate;
 @Entity
 @Table
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-//@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+@NoArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String firstName;
     private String lastName;
-
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     private LocalDate birthDate;
     private String city;
