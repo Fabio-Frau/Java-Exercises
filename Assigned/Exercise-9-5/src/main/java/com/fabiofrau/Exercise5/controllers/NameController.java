@@ -1,4 +1,4 @@
-package com.fabiofrau.Exercise4.controllers;
+package com.fabiofrau.Exercise5.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -22,8 +22,8 @@ public class NameController {
             @ApiResponse(responseCode = "404", description = "NOT FOUND")
     })
     public String getStraightName(@RequestParam(required = true, name = "name")
-                                      @Parameter(name = "nome", description = "Il nome fornito",
-                                      example = "Fabio") String name) {
+                                  @Parameter(name = "nome", description = "Il nome fornito",
+                                          example = "Fabio") String name) {
         return name;
     }
 
@@ -35,8 +35,8 @@ public class NameController {
             @ApiResponse(responseCode = "404", description = "NOT FOUND")
     })
     public String getReverseName(@RequestParam(required = true, name = "name")
-                                     @Parameter(name = "nome", description = "Il nome fornito",
-                                             example = "Fabio") String name) {
+                                 @Parameter(name = "nome", description = "Il nome fornito",
+                                         example = "Fabio") String name) {
         StringBuilder sb = new StringBuilder(name);
         return sb.reverse().toString();
     }
