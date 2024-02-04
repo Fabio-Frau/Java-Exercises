@@ -41,6 +41,7 @@ class TestControllersApplicationTests {
 
 	@Test
 	void restTemplateTest() {
+
 		String output = this.testRestTemplate.getForObject(
 				"http://127.0.0.1:" + port +"/",
 				String.class);
