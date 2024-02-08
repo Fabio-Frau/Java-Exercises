@@ -14,6 +14,6 @@ public class SpringMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(monthInterceptor).addPathPatterns("/months");
+        registry.addInterceptor(monthInterceptor).addPathPatterns("/months/**");
     }
 }
