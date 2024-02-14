@@ -1,0 +1,21 @@
+#spring.profiles.active: production
+
+server:
+  port: 5000
+
+---
+environment: integration
+server:
+  port: 3000
+
+---
+environment: production
+server:
+  port: 3000
+
+---
+environment: test
+myCustomVarTree:
+  customVar: 42
+server:
+  port: 4000
