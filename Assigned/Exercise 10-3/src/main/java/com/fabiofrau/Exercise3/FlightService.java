@@ -45,4 +45,8 @@ public class FlightService {
                 .collect(Collectors.joining());
     }
 
+    public List<FlightEntity> findCustom() {
+        return flightRepository.findCustom();
+    }
+
 }
