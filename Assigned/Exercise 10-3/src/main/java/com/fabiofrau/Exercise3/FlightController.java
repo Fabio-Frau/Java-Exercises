@@ -27,6 +27,11 @@ public class FlightController {
         return flightService.getAll();
     }
 
+    @GetMapping("/customQuery")
+    public List<FlightEntity> findCustom() {
+        return flightService.findCustom();
+    }
+
 
 
 
