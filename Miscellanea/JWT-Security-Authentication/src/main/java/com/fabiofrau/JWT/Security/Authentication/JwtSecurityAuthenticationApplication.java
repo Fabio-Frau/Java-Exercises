@@ -1,0 +1,13 @@
+package com.fabiofrau.JWT.Security.Authentication;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JwtSecurityAuthenticationApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JwtSecurityAuthenticationApplication.class, args);
+	}
+
+}

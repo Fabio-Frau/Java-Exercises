@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/file")
@@ -22,6 +24,7 @@ public class FileController {
     @GetMapping("/download")
     public @ResponseBody byte[] download(@RequestParam String fileName,
                                          HttpServletResponse response) throws IOException {
+
         System.out.println("Downloading " + fileName );
         String extension = FilenameUtils.getExtension(fileName);
         switch (extension) {
@@ -37,13 +40,19 @@ public class FileController {
                 break;
         }
         response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
+
         return fileStorageService.download(fileName);
 
     }
 
     @PostMapping("/upload")
-    public String upload(@RequestParam MultipartFile file) throws IOException {
-        return fileStorageService.upload(file);
+    public List<String> upload(@RequestParam MultipartFile[] files) throws IOException {
+        List<String> fileNames = new ArrayList<>();
+        for(MultipartFile file : files) {
+            String singleUploadedFileName = fileStorageService.upload(file);
+            fileNames.add(singleUploadedFileName);
+        }
+        return fileNames;
     }
 
 }
