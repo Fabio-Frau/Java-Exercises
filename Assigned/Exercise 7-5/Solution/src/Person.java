@@ -5,7 +5,6 @@ public class Person {
     private int age;
     private String address;
 
-    private Person() {}
 
     public String getFirstName() {
         return firstName;
@@ -23,39 +22,22 @@ public class Person {
         return address;
     }
 
-    private static class Builder {
-
-        private String firstName;
-        private String lastName;
-        private Integer age;
-        private String address;
-
-        public Person build() {
-            Person person = new Person();
-            person.firstName = this.firstName;
-            person.lastName = this.lastName;
-            person.age = this.age;
-            person.address = this.address;
-            return person;
-        }
-
-        public Builder(String firstName, String lastName) {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.age = null;
-            this.address = null;
-        }
-
-        public Builder setAge(Integer age) {
-            this.age = age;
-            return this;
-        }
-
-        public Builder setAddress(String address) {
-            this.address = address;
-            return this;
-        }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 
     @Override
     public String toString() {
